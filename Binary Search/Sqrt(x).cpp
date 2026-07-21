@@ -1,0 +1,17 @@
+class Solution {
+public:
+    int mySqrt(int x) {
+        int l = 0, r = min(x, 46340);
+
+        while (l <= r) {
+            int m = (l + r) >> 1;
+            long long sq = 1LL * m * m;
+
+            if (sq == x) return m;
+            if (sq < x) l = m + 1;
+            else r = m - 1;
+        }
+
+        return r;
+    }
+};
